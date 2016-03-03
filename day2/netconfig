@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+import os #imports functionality for system calls
+
+os.system('cls') #clears screen
+print ("- Network Configurator -")
+print ("- Version 1.0 -")
+print ("- Tested on CentOS 6.7 -")
+
+os.system('/sbin/ifconfig') #prints out net config
+
+
+# Input from user to gather information
+ip = raw_input("Enter IP Address: ")
+netmask = raw_input("Enter Netmask: ")
+gateway = raw_input("Enter Gateway: ")
+ns1 = raw_input("Enter Nameserver 1: ")
+ns2 = raw_input("Enter Nameserver 2: ")
+host = raw_input("Enter Hostname: ")
+hwadd = raw_input("Enter NIC Hardware Address: ")
+
+print ("Creating Files: 0%")
+
+#Creates and writes to network file
+network = open("network", "w")
+network.write("NETWORKING=yes\n")
+network.write("HOSTNAME=%s" % host)
+network.write("\nGATEWAY=%s" % gateway)
+
+print ("Creating Files: 25%")
+
+#Creates and writes to resolv.conf file
+resolv = open("resolv.conf", "w")
+resolv.write("nameserver %s\n" % ns1)
+resolv.write("nameserver %s" % ns2) 
+
+print ("Creating Files: 60%")
+
+#Creates and writes to the NIC config file
+eth0 = open("ifcfg-eth0","w")
+eth0.write("DEVICE=eth0\n")
+eth0.write("HWADDR=%s" % hwadd)
+eth0.write("\nTYPE=Ethernet")
+eth0.write("\nONBOOT=yes")
+eth0.write("\nBOOTPROTO=yes")
+eth0.write("\nIPV6INIT=no")
+eth0.write("\nUSERCTL=no")
+eth0.write("\nNM_CONTROLLED=yes")
+eth0.write("\nPEERDNS=yes")
+eth0.write("\nIPADDR=%s" % ip)
+eth0.write("\nNETMASK=%s" % netmask)
+
+print ("Created Files: 100%")
+
+print ("Configuration files created please move the files to the correct directory, this is not done automatically to prevent misconfiguration")
