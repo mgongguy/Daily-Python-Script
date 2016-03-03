@@ -4,5 +4,5 @@ from subprocess import call
 print "Removing Old Files";
 call(["sudo", "rm", "-rf", "/var/www/html"])
 print "Adding New Files";
-call(["sudo", "cp","-r", "/home/mark/projects/php/usello/Beta/", "/var/www/html/"]);
+call(["sudo", "cp","-r", ".", "/var/www/html/"]);
 print "Completed and site is live";
