@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+print "Welcome to the investment calculator"
+print "--- Version 1.0 ---"
+
+
+print "Let's learn more about you!"
+age = input("How old are you?: ")
+retireAge = input ("How old do you want to be when you retire?: ")
+balance = input ("Current balance: ")
+rate = input ("Assuming what annual rate of return?: ")
+
+def invest(balance, rate, years):
+   total = balance*(1 + rate)**years 
+   print "Balance in %d years: %d" % (years, total)
+   return total
+
+invest(balance, rate, (retireAge-age))
