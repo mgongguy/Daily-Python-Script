@@ -1,4 +1,4 @@
-The Plan:
+#The Plan:
 
 Everyday I will write a useful or not so useful script to help me learn more about python and become more familiar with the libraries. Feel free to comment on my work and give me suggestions and thoughts.
 
