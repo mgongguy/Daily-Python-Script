@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import os
+
+print "-----------------------"
+print "Current User Information"
+print "-----------------------"
+
+os.system("w")
+
+print "---------"
+print "Last Login"
+print "---------"
+
+os.system("lastlog")
+
+
