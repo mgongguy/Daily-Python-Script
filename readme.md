@@ -6,9 +6,13 @@ Day 1: sendlive - a script that sends your current directory to the default web 
 
 Day 2: NetConfig - a script that helps with the automation of configuration of your primary nic if you need to use a static ip. (Primarily designed for CentOS 6.7)
 
+<<<<<<< HEAD
 Day 3: InvestmentCal - a smiple script that caluclates compounding interest from
 the current day to what day you want to retire.
 
 Day 4: UserStats - a very simple script that calls many of the useful logging
 features that are already built in to CENTOS to help you monitor user activity
 and login location and ip. 
+=======
+Day 3: Investment Calculator - a script that uses your age and retirement age to figure out how much you will have if you stopped retirement contributions now
+>>>>>>> 85185b3e74abac426c5b0033a7630293e7c68235

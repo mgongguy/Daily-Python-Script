@@ -1,7 +1,0 @@
-#!/usr/bin/env python
-
-from subprocess import call
-
-call("clear")
-print "Backing up current directory!"
-call("cp", "|", "pwd", "|",
