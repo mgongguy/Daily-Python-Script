@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+import time #Imports the time module
+
+run = raw_input ("Start(y or n): ")
+min = 0
+full = 1
+
+if run == "y":
+    while min != 25 & full == 1:
+        print "Time left: ", (25-min)
+        time.sleep(60)
+        min += 1
+
+        if (min == 24):
+            full = 0
+            print "Break Time!"
+    min = 0
+    while min != 4 & full == 0:
+        print "Break Time Left: ", (4-min)
+        time.sleep(60)
+        min += 1
+    

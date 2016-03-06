@@ -13,3 +13,6 @@ features that are already built in to CENTOS to help you monitor user activity
 and login location and ip. 
 
 Day 5: nanalysis - This script allows you to view packets in linux utilizing the socket library in python.
+
+Day 6: pomTimer - This very simple script is a productivity timer and allowed me
+to play around with timers in python
