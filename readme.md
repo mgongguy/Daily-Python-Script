@@ -16,3 +16,6 @@ Day 5: nanalysis - This script allows you to view packets in linux utilizing the
 
 Day 6: pomTimer - This very simple script is a productivity timer and allowed me
 to play around with timers in python
+
+Day 7: httpServer - This simple http server utilizes scripts to serve webpages
+and files.
