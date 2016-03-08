@@ -19,3 +19,6 @@ to play around with timers in python
 
 Day 7: httpServer - This simple http server utilizes scripts to serve webpages
 and files.
+
+Day 8: pscan - This script scans open ports on an entered host. Utilizes sockets
+python module to scan

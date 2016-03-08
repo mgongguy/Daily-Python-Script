@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+#Imports sockets and needed modules
+import socket, sys, subprocess
+
+#Input and resolves hostname
+remoteServer = raw_input("Enter a remote host to scan: ")
+remoteServerIP = socket.gethostbyname(remoteServer)
+
+#Header
+
+print "*"*60
+print "Scanning Remote Host: ", remoteServerIP
+print "*"*60
+
+# For loop that scans ports through the socket module and returns a response
+
+try:
+    for port in range(1,1025):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        result = s.connect_ex((remoteServerIP, port))
+        if result == 0:
+            print "Port " + str(port) + ": Open"
+        s.close()
+except socket.gaierror:
+    print "Hostname could not be resolved. Exiting"
+    sys.exit()
+except socket.error:
+    print "Could not connect to server"
+    sys.exit()
+
+print "Scan completed!"
