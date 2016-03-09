@@ -22,3 +22,7 @@ and files.
 
 Day 8: pscan - This script scans open ports on an entered host. Utilizes sockets
 python module to scan
+
+Day 9: DownAlert - This script will constantly monitor a host and a chosen port
+for downtime and if the host or port goes down it will send a message to the
+entered email address

@@ -1,0 +1,60 @@
+#! /usr/bin/env python
+
+#Importing socket and smpt library module
+import socket
+import smtplib
+import datetime
+import time
+
+print "*" * 60
+print "Server/Service Uptime Alert Script"
+print "Mark Gong-Guy - Version 1.0"
+print "*" * 60
+print "To quit at anytime use CTRL+C"
+
+host = raw_input("What host/ip would you like to check: ")
+port = input("What port would you like to ping the server on?: ")
+sendto = raw_input("When host is down what email would you like us to send an alert to?: ")
+
+def sendAlert(sendto):
+    sender = 'server@liquiddatasolutions.com'
+    recievers = [sendto]
+
+    message = """From: Alert Services <server@liquiddatasolutions.com>
+    To: Server Admin
+    Subject: Website or Server is Down!
+
+    The script has detected that your server or service is down please contact
+    the network admin or look into the problem.
+    """
+
+    try:
+        smtpObj = smtplib.SMTP('localhost')
+        smtpObj = sendmail(sender, recievers, message)
+        print "Successfully sent alert"
+    except SMTPException:
+        print "Error: Unable to send alert"
+
+def isup(host, port):
+    #Creates Socket
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        s.connect((host, port))
+        return 1
+    except socket.error as e:
+        return 0
+    s.close()
+
+
+while 1==1:
+    if(isup(host, port) == 1):
+        ts = time.time()
+        ct = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        print "Host is live", ct
+        time.sleep(1)
+    else:
+        sendAlert(sendto)
+        print "Host is down", ct
+        time.sleep(600)
+
+
