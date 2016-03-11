@@ -26,3 +26,6 @@ python module to scan
 Day 9: DownAlert - This script will constantly monitor a host and a chosen port
 for downtime and if the host or port goes down it will send a message to the
 entered email address
+
+Day 10: todo - This script allows the user to create a very simple todo list to
+learn the use and functions of arrays.
