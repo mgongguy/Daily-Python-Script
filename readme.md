@@ -29,3 +29,6 @@ entered email address
 
 Day 10: todo - This script allows the user to create a very simple todo list to
 learn the use and functions of arrays.
+
+Day 11: Budgeting(v1) - This is a start to a budgeting app current functionality
+is only adding and removing transactions
