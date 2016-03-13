@@ -32,3 +32,6 @@ learn the use and functions of arrays.
 
 Day 11: Budgeting(v1) - This is a start to a budgeting app current functionality
 is only adding and removing transactions
+
+Day 12: nanalysis - Added a timer to allow the user to specify how long the
+packet scanner runs

@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+
+#Packet Sniffer for Python
+# Mark Gong-Guy
+
+import socket, sys, time
+from struct import *
+
+print "*" * 60
+print "Network Analytics (Packet Scanner)"
+print "*" * 60
+
+enteredtime = input("How many seconds would you like to run the script:")
+
+t_time = time.time() + enteredtime
+
+# Create a raw socket
+s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+
+#Recieve a packet
+
+while time.time() < t_time:
+    packet = s.recvfrom(65565) #Recieves packet and inserts it into var
+    packet = packet[0] #Packet string from tuple
+    ip_header = packet[0:20] #Take first 20 characters for the ip header
+    #Unpack Packets for Display
+    iph = unpack('!BBHHHBBH4s4s', ip_header)
+    version_ihl = iph[0]
+    version = version_ihl >> 4
+    ihl = version_ihl & 0xF
+
+    iph_length = ihl * 4
+
+    ttl = iph[5]
+    protocol = iph[6]
+    s_addr = socket.inet_ntoa(iph[8]);
+    d_addr = socket.inet_ntoa(iph[9]);
+         
+    print 'Version : ' + str(version) + ' IP Header Length : ' + str(ihl) + ' TTL : ' + str(ttl) + ' Protocol : ' + str(protocol) + ' Source Address: ' + str(s_addr) + ' Destination Address : ' + str(d_addr)
+             
+    tcp_header = packet[iph_length:iph_length+20]
+    tcph = unpack('!HHLLBBHHH' , tcp_header)              
+    source_port = tcph[0]
+    dest_port = tcph[1]
+    sequence = tcph[2]
+    acknowledgement = tcph[3]
+    doff_reserved = tcph[4]
+    tcph_length = doff_reserved >> 4
+
+    print 'Source Port : ' + str(source_port) + ' Dest Port : ' + str(dest_port) + ' Sequence Number : ' + str(sequence) + ' Acknowledgement : ' + str(acknowledgement) + ' TCP header length : ' + str(tcph_length)
+    h_size = iph_length + tcph_length * 4
+    data_size = len(packet) - h_size
+
+    data = packet[h_size:]
+
+    print 'Packet Data : ' + data
+    print
+                      
