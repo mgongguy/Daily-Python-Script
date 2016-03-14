@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+import os
+
+print "Starting SSH Agent"
+os.system("eval "$(ssh-agent)"")
+print "SSH Agent Started"
+
