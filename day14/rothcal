@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+print "*" * 60
+print "Roth IRA Calculator - Version 1.0"
+print "Mark Gong-Guy"
+print "*" * 60
+
+#Age Input and Variables
+retire_age = input("What age would you like to retire: ")
+current_age = input("What is your current age: ")
+moneyage = retire_age - current_age
+
+#Money Input and Variables
+current_bal = input("What is your current Roth IRA balance: ")
+aPrinciple_bal = 12 * input("How much are you going to contribute monthly: ")
+rate_bal = .08 #Assuming about 8 percent return annually
+
+#Function to calculate return
+def calReturn (principal, yearlyIncome, rate, time):
+    for x in range(0, time):
+        principal = yearlyIncome + principal
+        interest = principal * rate
+        principal = interest + principal
+    return principal
+
+print "Expected return in retirement", calReturn(current_bal, aPrinciple_bal, rate_bal, moneyage)
+
+
