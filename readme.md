@@ -37,3 +37,9 @@ Day 12: nanalysis - Added a timer to allow the user to specify how long the
 packet scanner runs
 
 Day 13: sshastart - Simple script to start ssh agent
+
+Day 14: rothcal - Roth IRA Investment Calculator
+
+Day 15: backup - Backup script that allows the user to select a directory to
+backup and compresses the dir and moves it to the remote host of the users
+choosing

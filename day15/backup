@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+from subprocess import call
+import time
+
+print "*" * 60
+print "Backup Script - Version 1.0"
+print "*" * 60
+
+bdirectory = raw_input("Directory to backup: ")
+rdirectory = raw_input("Directory to save to: ")
+
+ipaddr = raw_input("Remote Backup IP: ")
+ruser = raw_input ("Remote User: ")
+
+fileName = "Backup"  + time.strftime("%d.%m.%Y") + ".tar.gz"
+remoteinfo = ruser + "@" + ipaddr + ":" + rdirectory + fileName
+
+#Compreses Directory
+print "Compressing Directory..."
+call(["tar", "-cvzf", fileName, bdirectory])
+print "Compressed Directory", fileName
+
+#Backup Command
+print "Beginning Transfer..."
+call(["scp", "-r", fileName, remoteinfo])
+print "Backup Complete"
+
+call(["rm", fileName])
