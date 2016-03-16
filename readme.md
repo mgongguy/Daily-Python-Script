@@ -43,3 +43,7 @@ Day 14: rothcal - Roth IRA Investment Calculator
 Day 15: backup - Backup script that allows the user to select a directory to
 backup and compresses the dir and moves it to the remote host of the users
 choosing
+
+DAY 16: mysqlconnect - This script was the start of connecting databases with my
+script in the next few days I will be implementing a gui for this to add and
+remove records
