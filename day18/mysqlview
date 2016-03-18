@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+
+import mysql.connector
+
+print "*" * 60
+print "MYSQL Python Connection"
+print "*" * 60
+
+
+#Connects to mysql database
+db = mysql.connector.connect(user='mark', password='Mag15641994', host='localhost', database='python')
+
+print "Database Connected"
+
+print "*" * 60
+print "Database currently contains:"
+cursor = db.cursor()
+
+cursor.execute ("Select * from todo")
+data = cursor.fetchall()
+
+for row in data:
+    print row[0], row[1]
+
+print "*" * 60
+print "Enter into Database:"
+
+todo_name = raw_input("Enter a todo list item:")
+todo_date = raw_input("Enter a todo list due date:")
+
+cursor.execute('''INSERT into todo (todo_name, todo_date) values (%s, %s)''',(todo_name, todo_date))
+
+db.commit()
+
+#Disconnects from mysql db
+db.close()

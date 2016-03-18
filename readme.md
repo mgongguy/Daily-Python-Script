@@ -50,3 +50,5 @@ remove records
 
 Day 17: mysqladd - This script connects to the database and then will ask the
 user for input to enter into the database
+Day 18: mysqlview - A simple script to print out information from the selected mysql
+database. 
