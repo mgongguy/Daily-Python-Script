@@ -47,3 +47,6 @@ choosing
 DAY 16: mysqlconnect - This script was the start of connecting databases with my
 script in the next few days I will be implementing a gui for this to add and
 remove records
+
+Day 17: mysqladd - This script connects to the database and then will ask the
+user for input to enter into the database
